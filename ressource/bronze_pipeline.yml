@@ -1,0 +1,19 @@
+resources:
+  pipelines:
+
+    ecommerce_bronze_pipeline:
+      name: "[dev ${workspace.current_user.short_name}] ecommerce_bronze_pipeline"
+
+      catalog: ecommerce
+      schema: bronze
+      serverless: true
+
+      libraries:
+        - file:
+            path: ../src/bronze/customers.py
+
+        - file:
+            path: ../src/bronze/products.py
+
+      configuration:
+        ecommerce.raw_path: "/Volumes/ecommerce/raw/data"
