@@ -1,0 +1,21 @@
+resources:
+  pipelines:
+    ecommerce_pipeline:
+
+      name: ecommerce_pipeline
+
+      catalog: dev_bundle
+      schema: dev
+
+      serverless: true
+
+      configuration:
+        ecommerce.raw_path: "/Volumes/ecommerce/raw/data"
+
+      libraries:
+        - glob:
+            include: ../src/bronze/**
+        - glob:
+            include: ../src/silver/**
+        - glob:
+           include: ../src/gold/**

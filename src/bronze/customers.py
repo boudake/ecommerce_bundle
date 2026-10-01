@@ -1,6 +1,6 @@
 from pyspark import pipelines as dp
 
-@dp.table(name="customers_stream")
+@dp.table(name="dev_bundle.bronze.customers_stream")
 def bronze_customers_stream():
 
     raw_path = spark.conf.get("ecommerce.raw_path")

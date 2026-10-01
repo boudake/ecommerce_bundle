@@ -1,15 +1,15 @@
 from pyspark import pipelines as dp
 
-@dp.table(name="dev_bundle.bronze.products_stream")
-def bronze_products_stream():
-
+@dp.table(name="dev_bundle.bronze.orders_stream")
+def bronze_orders_stream():
+    
+    
     raw_path = spark.conf.get("ecommerce.raw_path")
-    products_path = f"{raw_path}/products"
-
+    orders_path = f"{raw_path}/orders"
+    
     return (
         spark.readStream
         .format("cloudFiles")
         .option("cloudFiles.format", "csv")
-        .option("header", "true")
-        .load(products_path)
+        .load(orders_path)
     )

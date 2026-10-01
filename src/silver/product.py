@@ -2,7 +2,7 @@ from pyspark import pipelines as dp
 from pyspark.sql.functions import col
 
 
-@dp.materialized_view(name="products")
+@dp.materialized_view(name="dev_bundle.silver.products")
 def silver_products():
 
     return (
