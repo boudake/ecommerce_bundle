@@ -1,0 +1,32 @@
+
+bundle:
+  name: ecommerce_bundle
+
+variables:
+  catalog:
+    default: dev_bundle
+  schema:
+    default: dev
+
+resources:
+  pipelines:
+    ecommerce_bundle:
+      name: ecommerce_bundle
+      catalog: ${var.catalog}
+      target: ${var.schema}
+      serverless: true
+      libraries:
+        - file:
+            path: src/bronze/customers.py
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://dbc-9aed42fa-dfb9.cloud.databricks.com/
+    resources:
+      pipelines:
+        ecommerce_bundle:
+          configuration:
+            ecommerce.raw_path: "/Volumes/ecommerce/raw/data"
