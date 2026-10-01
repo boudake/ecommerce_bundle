@@ -2,10 +2,10 @@ resources:
   pipelines:
 
     ecommerce_bronze_pipeline:
-      name: "ecommerce_bronze_pipeline"
+      name: "[dev ${workspace.current_user.short_name}] ecommerce_bronze_pipeline"
 
-      catalog: ecommerce
-      schema: bronze
+      catalog: dev_bundle
+      schema: dev
       serverless: true
 
       libraries:
