@@ -17,7 +17,7 @@ resources:
       serverless: true
       libraries:
         - file:
-            path: src/bronze/customers.py
+            path: src/bronze/*
       configuration:
             ecommerce.raw_path: "/Volumes/ecommerce/raw/data"
 targets:
