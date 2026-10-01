@@ -18,7 +18,8 @@ resources:
       libraries:
         - file:
             path: src/bronze/customers.py
-
+      configuration:
+            ecommerce.raw_path: "/Volumes/ecommerce/raw/data"
 targets:
   dev:
     mode: development
@@ -28,5 +29,4 @@ targets:
     resources:
       pipelines:
         ecommerce_bundle:
-          configuration:
-            ecommerce.raw_path: "/Volumes/ecommerce/raw/data"
+          
