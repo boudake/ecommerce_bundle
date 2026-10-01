@@ -17,7 +17,5 @@ targets:
     default: true
     workspace:
       host: https://dbc-9aed42fa-dfb9.cloud.databricks.com/
-    resources:
-      pipelines:
-        ecommerce_bundle:
+
           
