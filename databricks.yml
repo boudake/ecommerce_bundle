@@ -8,18 +8,9 @@ variables:
   schema:
     default: dev
 
-resources:
-  pipelines:
-    ecommerce_bundle:
-      name: ecommerce_bundle
-      catalog: ${var.catalog}
-      target: ${var.schema}
-      serverless: true
-      libraries:
-        - file:
-            path: src/bronze/*
-      configuration:
-            ecommerce.raw_path: "/Volumes/ecommerce/raw/data"
+include:
+  - resources/*.yml
+
 targets:
   dev:
     mode: development
