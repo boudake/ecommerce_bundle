@@ -1,5 +1,5 @@
 
-pythonpath = ["."]
+pythonpath = ["src"]
 [project]
 name = "ecommerce-bundle"
 version = "0.1.0"
