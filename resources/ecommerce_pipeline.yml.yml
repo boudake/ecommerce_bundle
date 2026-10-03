@@ -4,13 +4,20 @@ resources:
 
       name: ecommerce_pipeline
 
-      catalog: dev_bundle
-      schema: dev
+      catalog: ${var.catalog}
+      schema: bronze
 
       serverless: true
 
       configuration:
+        ecommerce.catalog: ${var.catalog}
+        ecommerce.environment: ${var.environment}
+
         ecommerce.raw_path: "/Volumes/ecommerce/raw/data"
+
+        ecommerce.bronze.schema: bronze
+        ecommerce.silver.schema: silver
+        ecommerce.gold.schema: gold
 
       libraries:
         - glob:
@@ -18,4 +25,4 @@ resources:
         - glob:
             include: ../src/silver/**
         - glob:
-           include: ../src/gold/**
+            include: ../src/gold/**

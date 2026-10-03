@@ -7,6 +7,8 @@ variables:
     default: dev_bundle
   schema:
     default: dev
+  environment:
+    default: dev  
 
 include:
   - resources/*.yml
@@ -17,3 +19,16 @@ targets:
     default: true
     workspace:
       host: https://dbc-9aed42fa-dfb9.cloud.databricks.com/
+    variables:
+      catalog: dev_bundle
+      environment: dev  
+  
+  prod:
+    mode: production
+    workspace:
+      host: https://dbc-9aed42fa-dfb9.cloud.databricks.com/
+
+    variables:
+      catalog: prod_bundle
+      schema: prod
+      environment: prod
