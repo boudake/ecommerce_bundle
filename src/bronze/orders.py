@@ -1,12 +1,12 @@
 from pyspark import pipelines as dp
 
-@dp.table(name="dev_bundle.bronze.orders_stream")
-def bronze_orders_stream():
-    
-    
-    raw_path = spark.conf.get("ecommerce.raw_path")
-    orders_path = f"{raw_path}/orders"
-    
+catalog = spark.conf.get("ecommerce.catalog")
+schema = spark.conf.get("ecommerce.bronze.schema")
+raw_path = spark.conf.get("ecommerce.raw_path")
+orders_path = f"{raw_path}/orders"
+@dp.table(name=f"{catalog}.{schema}.orders_stream")
+
+def bronze_orders_stream():    
     return (
         spark.readStream
         .format("cloudFiles")

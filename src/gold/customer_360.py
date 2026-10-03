@@ -13,20 +13,23 @@ from pyspark.sql.functions import (
     lit
 )
 
+catalog = spark.conf.get("ecommerce.catalog")
+silver_schema = spark.conf.get("ecommerce.silver.schema")
+schema = spark.conf.get("ecommerce.gold.schema")
 
 @dp.materialized_view(
-    name="dev_bundle.gold.customer_360"
+    name=f"{catalog}.{schema}.customer_360"
 )
 def customer_360():
 
     customers = (
         spark.read
-        .table("dev_bundle.silver.customers")
+        .table(f"{catalog}.{silver_schema}.customers")
     )
 
     orders = (
         spark.read
-        .table("dev_bundle.silver.orders")
+        .table(f"{catalog}.{silver_schema}.orders")
     )
 
     # ------------------------------------------------
