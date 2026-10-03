@@ -1,6 +1,6 @@
-[tool.pytest.ini_options]
-pythonpath = ["."]
-testpaths = ["tests"]
+[project]
+name = "ecommerce-analytics"
+version = "0.1.0"
 
 dependencies = [
     "pyspark"
@@ -12,7 +12,6 @@ test = [
     "pytest-cov"
 ]
 
-
-
-
-
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
