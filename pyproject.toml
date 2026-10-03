@@ -1,8 +1,6 @@
-
-pythonpath = ["src"]
-[project]
-name = "ecommerce-bundle"
-version = "0.1.0"
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
 
 dependencies = [
     "pyspark"
@@ -14,5 +12,7 @@ test = [
     "pytest-cov"
 ]
 
-[tool.pytest.ini_options]
-testpaths = ["tests"]
+
+
+
+
