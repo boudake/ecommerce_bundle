@@ -1,5 +1,11 @@
+import os
+import sys
+
+# pipeline cwd is .../files/src/silver, so go up two levels to the bundle root (.../files)
+sys.path.append(os.path.abspath(os.path.join(os.getcwd(), "..", "..")))
+
 from pyspark import pipelines as dp
-from src.silver.clean_order import clean_orders
+from silver.clean_order import clean_orders
 
 catalog = spark.conf.get("ecommerce.catalog")
 schema = spark.conf.get("ecommerce.silver.schema")
